@@ -1,7 +1,7 @@
-const http = require('http');
+const http = require('https');
  
 let getMovie= new Promise((resolve,reject)=>{
-    http.get('http://api.douban.com/v2/movie/nowplaying?apikey=0df993c66c0c636e29ecbb5344252a4a', (resp) => {
+    http.get('https://api.douban.com/v2/movie/nowplaying?apikey=0df993c66c0c636e29ecbb5344252a4a', (resp) => {
   let data = '';
  
   // A chunk of data has been recieved.
