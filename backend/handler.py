@@ -1,7 +1,10 @@
 import json
 
 
-def hello(event, context):
+def hander(event, context):
+    #event get the post parameter: movie id
+    #then call the item to time function to get the most like item
+    #give the response
     body = {
         "message": "Go Serverless v1.0! Your function executed successfully!",
         "input": event
@@ -14,8 +17,7 @@ def hello(event, context):
 
     return response
 
-    # Use this code if you don't use the http event with the LAMBDA-PROXY
-    # integration
+
     """
     return {
         "message": "Go Serverless v1.0! Your function executed successfully!",
