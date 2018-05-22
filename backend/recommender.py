@@ -57,7 +57,7 @@ movie_rating_all=pd.DataFrame()
 for movie in distinct_movies[313:314]:
     movie_nbr=movie_data_all_append[movie_data_all_append['movieId1']==movie]
     movie_mean = Ratings[Ratings['movieId']==movie]
-    mean = movie_mean[“rating”].mean()
+    mean = movie_mean["rating"].mean()
     movie_nbr_dot = pd.merge(user_data1,movie_nbr[['dot','movieId2','movieId1']], how = 'inner',left_on='movieId', right_on='movieId2', sort = False)
     movie_nbr_dot['wt_rating']=movie_nbr_dot['dot']*movie_nbr_dot['rating_adjusted']
     movie_nbr_dot['dot_abs']=movie_nbr_dot['dot'].abs()

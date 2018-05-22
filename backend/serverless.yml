@@ -20,3 +20,12 @@ functions:
         - http:
             path: /
             method: post
+            cors: true
+
+  getMovies:
+    handler: movies/get.get
+    events:
+        - http:
+            path: /getMovies
+            method: get
+            cors: true
