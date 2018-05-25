@@ -65,7 +65,7 @@ data () {
     }
   },
     beforeCreate(){
-    this.$store.dispatch("getMovies");
+    // this.$store.dispatch("getMovies");
   }
 }
 </script>

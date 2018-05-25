@@ -16,7 +16,7 @@ user_data= Ratings[Ratings['userId']!=320]
 distinct_movies=np.unique(user_data['movieId'])
 i=1
 for movie in distinct_movies:
- 
+    
     if i%10==0:
         print(i , 'out of ', len(distinct_movies))
         movie_data_all=pd.DataFrame()

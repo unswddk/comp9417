@@ -29,7 +29,6 @@
         </md-card-expand-content>
       </md-card-expand>
     </md-card>
-  <!-- </div> -->
 </template>
 <script>// https://api.douban.com/v2/
     export default {

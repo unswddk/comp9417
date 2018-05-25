@@ -9,6 +9,7 @@ package:
     - serverless.yml
     - README.md
     - LICENSE.txt
+    
 provider:
   name: aws
   runtime: python3.6
