@@ -109,7 +109,7 @@ export default {
     },
     deleteSerch(text, index) {
       console.log(index);
-      if(searchMovies.length ===0){
+      if(this.searchMovies.length ===0){
         this.moviesCopy = this.moviesNameTime.slice((this.currentPage - 1) * 12, this.currentPage * 12);
       }else{
         let word= this.searchMovies[index-1].toLowerCase()
