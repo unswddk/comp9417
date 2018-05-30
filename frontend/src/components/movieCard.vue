@@ -12,7 +12,7 @@
         <md-card-actions md-alignment="space-between">
            <md-button class="md-primary" @click="recommender">
               <!-- <md-icon >favorite</md-icon> -->
-              recommender
+              more movies like this
             </md-button>
 
           <md-card-expand-trigger>
