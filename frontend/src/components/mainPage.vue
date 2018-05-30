@@ -13,7 +13,6 @@
       <md-card class="page">
     <Page :current="currentPage" :total="totalPage" @on-change="pageChange" simple style="float:right"></Page>
    </md-card>
-   <br><br>
 </div>
 </template>
 <script>

@@ -20,7 +20,7 @@
       <md-app-drawer :md-active.sync="menuVisible">
         <md-toolbar class="md-transparent" md-elevation="0">Navigation</md-toolbar>
 
-        <md-list>
+        <!-- <md-list>
           <md-list-item>
             <md-icon>move_to_inbox</md-icon>
             <span class="md-list-item-text">Inbox</span>
@@ -40,7 +40,7 @@
             <md-icon>error</md-icon>
             <span class="md-list-item-text">Spam</span>
           </md-list-item>
-        </md-list>
+        </md-list> -->
       </md-app-drawer>
 
       <md-app-content>

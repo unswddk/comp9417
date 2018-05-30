@@ -1,11 +1,10 @@
 service: backend
 
-
 package:
   include:
-    - common/**
+    - handler.py
   exclude:
-    - requirements.txt
+    # - requirements.txt
     - serverless.yml
     - README.md
     - LICENSE.txt
@@ -15,12 +14,12 @@ provider:
   runtime: python3.6
 
 functions:
-  hello:
+  recommender:
     handler: handler.hander
     events:
         - http:
-            path: /
-            method: post
+            path: /recommender/{id}
+            method: get
             cors: true
 
   getMovies:

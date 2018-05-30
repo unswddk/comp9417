@@ -1,30 +1,17 @@
 import json
 
-
 def hander(event, context):
-    #event get the post parameter: movie id
-    #then call the item to time function to get the most like item
-    #give the response
-    data = json.loads(event['body'])
-    
-    body = {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "input": event
-    }
+    target_id = event['pathParameters']['id']
+    result=[]
+    with open('data/data.json') as data_file:
+        data_loaded = json.load(data_file)
+    for p in data_loaded[target_id]["peer"]:
+        result.append(data_loaded[str(p)]["name"])
     response = {
         "statusCode": 200,
         "headers":{
             "Access-Control-Allow-Origin":"*"
         },
-        "body": json.dumps(body)
+        "body": json.dumps(result)
     }
-
     return response
-
-
-    """
-    return {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
-        "event": event
-    }
-    """

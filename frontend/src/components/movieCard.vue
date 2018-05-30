@@ -8,14 +8,12 @@
         <div class="md-title">{{title}}</div>
         <div class="md-subhead">{{release_date}}</div>
       </md-card-header>
-
       <md-card-expand>
         <md-card-actions md-alignment="space-between">
-          <div>
-           <md-button class="md-icon-button">
-              <md-icon>favorite</md-icon>
+           <md-button class="md-primary" @click="recommender">
+              <!-- <md-icon >favorite</md-icon> -->
+              recommender
             </md-button>
-          </div>
 
           <md-card-expand-trigger>
             <md-button class="md-primary">overview</md-button>
@@ -27,11 +25,19 @@
                   {{overview}}
           </md-card-content>
         </md-card-expand-content>
+        </md-card-actions>
       </md-card-expand>
+    <md-snackbar class="md-scrollbar" :md-active.sync="showRecommender" md-position="center" md-duration="40000">    
+           <recommenderCard  v-for="item in recommenderMovies" :key="item.index" v-bind:message="item"></recommenderCard>
+      <md-button class="md-fab md-plain md-mini closeBtn"  @click="showRecommender=false">
+        <md-icon>close</md-icon>
+      </md-button>
+    </md-snackbar>
     </md-card>
 </template>
 <script>// https://api.douban.com/v2/
-    export default {
+import recommenderCard from "./recommender.vue"
+export default {
         name:'',
         props:["message"],
         data(){
@@ -43,9 +49,14 @@
               vote_average:null,
               imageLink:'',
               backdrop_path:'',
+              showRecommender:false,
               show:false,
+              recommenderMovies:[],
               title:''
             }
+        },
+        components:{
+          recommenderCard
         },
         created() {
           this.$http.get("https://api.themoviedb.org/3/search/movie?api_key=69186e589fea05ca3633aa8ebff8912e&language=en-US&query="+this.message.name+"&page=1&include_adult=false&year="+this.message.time+"").then(
@@ -61,17 +72,21 @@
               this.backdrop_path = data.backdrop_path
               this.imageLink = "https://image.tmdb.org/t/p/w500/" +this.poster_path
             },response=>{
-
             }
           )
         },
         computed:{
-
         },
         methods:{
-        // imageLink(){
-        //     console.log(this.message.images.medium)
-        //     return this.message.images.medium;},
+          recommender(){
+          this.$http.get("https://m3eg3ubuzg.execute-api.us-east-1.amazonaws.com/dev/recommender/"+this.message.id).then(
+            response=>{
+              let data = response.data;
+              console.log(data);
+              this.recommenderMovies = data;
+              this.showRecommender=!this.showRecommender;
+              })
+          }
         }
     }
 </script>
@@ -86,5 +101,18 @@
     height: 238px;
     overflow:hidden;
     text-overflow: ellipsis; 
+  }
+  .md-snackbar{
+    // width: 1400px;
+    // height: 300px;
+    max-width:1200px;
+    max-height:230px;
+    overflow:auto;
+  }
+  .closeBtn{
+    position: fixed;
+    // right: 0;
+    bottom: 202px;
+    right: 100px;
   }
 </style>
