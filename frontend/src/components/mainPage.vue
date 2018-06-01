@@ -136,7 +136,4 @@ export default {
 .md-chips {
   margin: 40px 12%;
 }
-.page {
-  margin-bottom: 40px;
-}
 </style>

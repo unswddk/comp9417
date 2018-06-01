@@ -106,13 +106,17 @@ export default {
     // width: 1400px;
     // height: 300px;
     max-width:1200px;
-    max-height:230px;
+    max-height:240px;
     overflow:auto;
   }
   .closeBtn{
     position: fixed;
     // right: 0;
-    bottom: 202px;
-    right: 100px;
+    bottom:30%;
+    right: 50%;
   }
+.closeBtn:hover{
+    bottom:26%;
+    }
+
 </style>
