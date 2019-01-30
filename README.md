@@ -2,7 +2,7 @@
 
 *A movie recommendation system base on item to item collaborative filtering*
 
-[Click to this link see demo](https://unswddk.github.io/comp9417/#/)
+
 
 ## front-end vue-cli,vue material, vuex
 
